@@ -12,6 +12,11 @@ import {
 	SelectValue,
 } from "./components/ui/select";
 
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Button } from './components/ui/button';
+
+
 
 const unitTypes = ["kg"];
 const defaultUnit = unitTypes[0]; // should be kg
@@ -67,7 +72,7 @@ function App() {
 			<div id='headerbar' className='flex justify-center border-blue-100 p-4 bg-indigo-100'>
 				<h1 className='text-2xl'>Bread Maker App</h1>
 			</div>
-			<div id='main' className='p-8'>
+			<div id='main' className='p-8 mx-16'>
 				<div id='weight-inputs' className='my-4'>
 					<div className='my-2 font-bold'>How much bread to make?</div>
 					<div className='flex'>
@@ -166,7 +171,7 @@ function App() {
 							<Checkbox />
 							<p>Turn 6</p>
 						</div>
-												<div className='m-2 flex flex-col items-center'>
+						<div className='m-2 flex flex-col items-center'>
 							<Checkbox />
 							<p>Turn 7</p>
 						</div>
@@ -191,6 +196,17 @@ function App() {
 				</div>
 				<div id='shape-loaves'>
 					<div className='my-2 font-bold'>Shape Into Loaf Forms</div>
+					<div id='loaf-form-selector' className='flex m-2'>
+						<div className='flex items-center mx-4'>
+							<Checkbox className='mr-2' /><p>Loaf Tins</p>
+						</div>
+						<div className='flex items-center mx-4'>
+							<Checkbox className='mr-2' /><p>Round Loaves</p>
+						</div>
+						<div className='flex items-center mx-4'>
+							<Checkbox className='mr-2' /><p>Oblong Loaves</p>
+						</div>
+					</div>
 					<p>Dust the top of each piece of dough lightly with flour.</p>
 					<p>Flip and do envelope fold shaping.</p>
 					<p>Place into floured baskets or oiled loaf tins.</p>
@@ -206,6 +222,107 @@ function App() {
 					<p>If dutch oven, take off lid at the 20min mark.</p>
 					<p>Bake for about 40-45 mins or until top is dark golden brown.</p>
 				</div>
+				<div id='rate-loaves'>
+					<div className='my-2 font-bold'>Rate Loaves</div>
+
+					<div id='doneness-group' className='flex my-2'>
+						<div className='mr-4'>Crust Color / Doneness</div>
+						<RadioGroup className='flex'>
+							<div className='mr-2'>
+								<RadioGroupItem value="underbaked" className='mr-1' />
+								<Label>Underbaked</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="lightlybaked" className='mr-1' />
+								<Label>Lightly Baked</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="wellbaked" className='mr-1' />
+								<Label>Well Baked</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="overbaked" className='mr-1' />
+								<Label>Overbaked / Burnt</Label>
+							</div>
+
+						</RadioGroup>
+					</div>
+
+					<div id='height-group' className='flex my-2'>
+						<div className='mr-4'>Loaf Height</div>
+						<RadioGroup className='flex'>
+							<div className='mr-2'>
+								<RadioGroupItem value="flat" className='mr-1' />
+								<Label>Flat</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="slightrise" className='mr-1' />
+								<Label>Slight Rise</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="goodrise" className='mr-1' />
+								<Label>Good Rise</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="highrise" className='mr-1' />
+								<Label>High Rise</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="tornrise" className='mr-1' />
+								<Label>Side Tears</Label>
+							</div>
+
+						</RadioGroup>
+					</div>
+
+					<div id='flavor-group' className='flex my-2'>
+						<div className='mr-4'>Sourdough Flavor</div>
+						<RadioGroup className='flex'>
+							<div className='mr-2'>
+								<RadioGroupItem value="light" className='mr-1' />
+								<Label>Lightly Sour</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="average" className='mr-1' />
+								<Label>Some Sour</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="strong" className='mr-1' />
+								<Label>Strong Sourdough</Label>
+							</div>
+
+						</RadioGroup>
+					</div>
+
+					<div id='structure-group' className='flex my-2'>
+						<div className='mr-4'>Interior Structure</div>
+						<RadioGroup className='flex'>
+							<div className='mr-2'>
+								<RadioGroupItem value="dense" className='mr-1' />
+								<Label>Dense</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="small" className='mr-1' />
+								<Label>Small Bubbles</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="good" className='mr-1' />
+								<Label>Medium Bubbles</Label>
+							</div>
+							<div className='mr-2'>
+								<RadioGroupItem value="airy" className='mr-1' />
+								<Label>Large Bubbles</Label>
+							</div>
+						</RadioGroup>
+
+					</div>
+											<div className='my-2'>
+							<Button>Save Baking Log</Button>
+						</div>
+
+				</div>
+
+
 			</div>
 
 		</>
