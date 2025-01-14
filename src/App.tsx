@@ -316,7 +316,8 @@ function App() {
 						</RadioGroup>
 
 					</div>
-											<div className='my-2'>
+						<div className='my-8 flex justify-between'>
+							<Button variant={"outline"}>Reset Form</Button>
 							<Button>Save Baking Log</Button>
 						</div>
 
