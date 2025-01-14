@@ -1,6 +1,8 @@
 import './App.css'
 import { Input } from './components/ui/input';
 import { ToggleGroup, ToggleGroupItem } from './components/ui/toggle-group';
+import { Checkbox } from "@/components/ui/checkbox"
+
 import { useState } from 'react';
 import {
 	Select,
@@ -26,7 +28,18 @@ const factoredLeavenWaterAmount = 50; // for 1 1kg loaf (2lb loaf)
 const factoredLeavenFlourAmount = 50; // for 1kg loaf (2lb loaf)
 const factoredLeavenStarterAmount = 0.5; // half tablespoon for each loaf
 
+// LOAF TYPE
 const loafType = "levain";
+
+// INGREDIENTS LEVAIN
+// dough factor 1 kg
+const breadFlour = 450;
+const wheatFlour = 50;
+const leaven = 100;
+const water = 350;
+
+const addSalt = 11;
+const addWater = 25;
 
 
 function App() {
@@ -106,21 +119,93 @@ function App() {
 				<div id='make-dough'>
 					<div className='my-2 font-bold'>Make the Dough</div>
 					<div className='my-2'>Ingredients</div>
-					<p>700 g warm water</p>
-					<p>200 g leaven</p>
-					<p>1000 g flour</p>
+					<p>{water * doughFactor} g warm water</p>
+					<p>{leaven * doughFactor} g leaven</p>
+					<p>{breadFlour * doughFactor} g bread flour</p>
+					<p>{wheatFlour * doughFactor} g wheat flour</p>
 					<p>Mix together by hand or with a mixer on low.</p>
 					<p>Let rest for 25 mins.</p>
 				</div>
-				<div>
+				<div id='salt-dough'>
 					<div className='my-2 font-bold'>Salt the Dough</div>
 					<p>Add an additional</p>
-					<p>50 g water</p>
-					<p>22 g salt</p>
+					<p>{addWater * doughFactor} g warm water</p>
+					<p>{addSalt * doughFactor} g salt</p>
 					<p>Mix well until salt evenly distributed.</p>
 					<p>Put into large bowl, cover, and set aside in a warm area to start proving.</p>
+					<p>Set a timer for 30min.</p>
 				</div>
-				<div id='do-turns'></div>
+				<div id='do-turns'>
+					<div className='my-2 font-bold'>Do turns</div>
+					<p>Once the 30min is done, take the dough and do the first set of turns, about 6.</p>
+					<p>Set the timer for another 30 mins.</p>
+					<p>Continue turning every 30mins another 5 times, to make 6 total.</p>
+					<p>If, after 6 turns the dough doesn't feel structured enough yet, do up to 2 more.</p>
+					<div id='turns-checkboxes' className='flex my-2'>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 1</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 2</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 3</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 4</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 5</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 6</p>
+						</div>
+												<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 7</p>
+						</div>
+						<div className='m-2 flex flex-col items-center'>
+							<Checkbox />
+							<p>Turn 8</p>
+						</div>
+
+
+					</div>
+					<p>Remember to keep the dough in a warm place, 80F is ideal.</p>
+				</div>
+				<div id='divide-dough'>
+					<div className='my-2 font-bold'>Divide Dough and Bench Rest</div>
+					<p>Turn dough out onto a clean counter space.</p>
+					<p>Sprinkle the top with flour.</p>
+					<p>Using a bench scraper, divide dough into as many pieces as you need</p>
+					<p>For each piece, flip it over and draw the outside edges up and in to the middle, creating a ball.</p>
+					<p>Flip over again so joined side is on the bottom, use scraper to help shape ball and add tension.</p>
+					<p>Cover dough ball(s) with towel and let rest 25-40 mins, depending on temp.</p>
+					<p>Dough should still have some tension at end of rest, if not, flip and round into ball again and let rest 25 mins.</p>
+				</div>
+				<div id='shape-loaves'>
+					<div className='my-2 font-bold'>Shape Into Loaf Forms</div>
+					<p>Dust the top of each piece of dough lightly with flour.</p>
+					<p>Flip and do envelope fold shaping.</p>
+					<p>Place into floured baskets or oiled loaf tins.</p>
+					<p>Let rise another 2 hours or put into fridge for 8-12, up to 24 hours max.</p>
+				</div>
+				<div id='bake-loaves'>
+					<div className='my-2 font-bold'>Prep and Bake</div>
+					<p>If loaves in fridge, take out about 2 hours before baking time to get them to room temp</p>
+					<p>Preheat oven to 500F. If using dutch oven, put it in to preheat.</p>
+					<p>Once oven ready, if using tins, mist with a little water on top and put tins straight in.</p>
+					<p>Or, if using dutch oven, flip dough from basket, score the top, cover, and put into oven.</p>
+					<p>Optionally, can score the top of the loaves in tins at about the 6-8 min mark. Also helps to mist with steam during first 10 mins of baking.</p>
+					<p>If dutch oven, take off lid at the 20min mark.</p>
+					<p>Bake for about 40-45 mins or until top is dark golden brown.</p>
+				</div>
 			</div>
 
 		</>
