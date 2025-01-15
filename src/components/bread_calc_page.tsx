@@ -1,26 +1,21 @@
-import { Input } from '@/components/ui/input';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Checkbox } from "@/components/ui/checkbox"
 
 import { useState } from 'react';
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
 
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from './ui/card';
+import RecipeInputsCard from './breadcalc/inputs_card';
+import LeavenCard from "./breadcalc/leaven_card";
 
 
 
-
-const unitTypes = ["kg"];
+const unitTypes = ["kg" ,"lb"];
 const defaultUnit = unitTypes[0]; // should be kg
+const breadTypes = ["levain", "wheat"]
+const defaultBreadType = breadTypes[0];
+
 
 // LEAVEN
 // 2 1kg loaves dough needs 200g starter leaves 200g
@@ -34,8 +29,7 @@ const factoredLeavenWaterAmount = 50; // for 1 1kg loaf (2lb loaf)
 const factoredLeavenFlourAmount = 50; // for 1kg loaf (2lb loaf)
 const factoredLeavenStarterAmount = 0.5; // half tablespoon for each loaf
 
-// LOAF TYPE
-const loafType = "levain";
+
 
 // INGREDIENTS LEVAIN
 // dough factor 1 kg
@@ -59,13 +53,18 @@ const addWater = 25;
 export default function BreadCalcPage() {
 	const [doughFactor, setdoughFactor] = useState(1);
 	const [units, setUnits] = useState(defaultUnit);
+	const [breadType, setBreadType] = useState(defaultBreadType);
 	const [leavenWaterAmount, setLeavenWaterAmount] = useState(baseLeavenWaterAmount + factoredLeavenWaterAmount);
 	const [leavenFlourBlendAmount, setLeavenFlourBlendAmount] = useState(baseLeavenFlourAmount + factoredLeavenFlourAmount);
 	const [leavenStarterAmount, setLeavenStarterAmount] = useState(baseLeavenStarterAmount + factoredLeavenStarterAmount);
 
+	const handleUnitsChange = (unit: string) => {
+		if (unit) {
+			setUnits(unit);
+		}
+	}
 
-
-	const handledoughFactorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleDoughFactorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		if (event.target.value) {
 			const newdoughFactor = Number(event.target.value);
 			setdoughFactor(newdoughFactor);
@@ -78,69 +77,29 @@ export default function BreadCalcPage() {
 		}
 	}
 
+	const handleBreadTypeChange = (type: string) => {
+		if (type) {
+			setBreadType(type);
+		}
+	}
+
 	return (
 		<div id='bread-calc-page' className='p-8 mx-16'>
-			<Card id='recipe-inputs' className='my-4 border-gray-200 border rounded-md'>
-				<CardHeader>
-					<CardTitle>Set the Recipe</CardTitle>
-				</CardHeader>
-				<CardContent className=''>
-					<div className=''>
-						<div className='m-2 font-bold'>How much bread to make?</div>
-						<div className='flex m-2'>
-							<div className='w-16'>
-								<Input
-									type='number'
-									min={1} max={10}
-									value={doughFactor}
-									onChange={handledoughFactorChange}
-								>
-								</Input>
-							</div>
-							<div className='w-32'>
-								<ToggleGroup
-									type="single"
-									value={units}
-									onValueChange={(val) => {
-										if (val) setUnits(val);
-									}}>
-									{unitTypes && unitTypes.map(type => {
-										return <ToggleGroupItem value={type}>{type}</ToggleGroupItem>;
-									})}
-								</ToggleGroup>
-							</div>
-						</div>
-					</div>
-					<div className='mt-4'>
-						<div className='m-2 font-bold'>What type of bread?</div>
-						<div className='m-2'>
-							<Select>
-								<SelectTrigger className="w-[180px]">
-									<SelectValue placeholder="choose one" />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectItem value={loafType}>{loafType[0].toUpperCase() + loafType.substring(1)}</SelectItem>
-									{/* <SelectItem value="dark">Dark</SelectItem>
-							<SelectItem value="system">System</SelectItem> */}
-								</SelectContent>
-							</Select>
-						</div>
-					</div>
-				</CardContent>
-			</Card>
+			<RecipeInputsCard
+				handledoughFactorChange={handleDoughFactorChange}
+				doughFactor={doughFactor}
+				units={units}
+				handleUnitsChange={handleUnitsChange}
+				breadType={breadType}
+				handleBreadTypeChange={handleBreadTypeChange}
+			/>
+			<LeavenCard 
+				leavenWaterAmount={leavenWaterAmount}
+				leavenStarterAmount={leavenStarterAmount}
+				leavenFlourBlendAmount={leavenFlourBlendAmount}
+			/>
 
-			<Card id='leaven-amounts' className='my-4  border-gray-200 border rounded-md'>
-				<CardHeader>
-					<CardTitle>Make the Leaven</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className=''>Ingredients</div>
-					<p>{leavenWaterAmount} g water</p>
-					<p>{leavenStarterAmount} T starter</p>
-					<p>{leavenFlourBlendAmount} g starter flour blend</p>
-					<p>Mix together in a bowl. Let sit for 8 hours or overnight.</p>
-				</CardContent>
-			</Card>
+
 
 			<Card id='make-dough' className='my-4 border-gray-200 border rounded-md'>
 				<CardHeader>
@@ -372,8 +331,8 @@ export default function BreadCalcPage() {
 
 				</CardContent>
 				<CardFooter className='flex justify-around'>
-						<Button variant={"outline"}>Reset Form</Button>
-						<Button>Save Baking Log</Button>
+					<Button variant={"outline"}>Reset Form</Button>
+					<Button>Save Baking Log</Button>
 				</CardFooter>
 			</Card>
 
