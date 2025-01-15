@@ -100,12 +100,14 @@ function App() {
 					</div>
 				</div>
 				<div id='leaven-amounts' className='my-4'>
-					<div className='my-2 font-bold'>Dough Starter Amounts</div>
+					<div className='my-2 font-bold'>Make the Leaven</div>
+					<div className='my-2'>Ingredients</div>
 					<div className='my-2'>
 						<p>{leavenWaterAmount} g water</p>
 						<p>{leavenStarterAmount} T starter</p>
 						<p>{leavenFlourBlendAmount} g starter flour blend</p>
 					</div>
+					<p>Mix together in a bowl. Let sit for 8 hours or overnight.</p>
 				</div>
 				<div id='loaf-type' className='my-4'>
 					<div className='my-2 font-bold'>What type of bread?</div>
@@ -316,10 +318,10 @@ function App() {
 						</RadioGroup>
 
 					</div>
-						<div className='my-8 flex justify-between'>
-							<Button variant={"outline"}>Reset Form</Button>
-							<Button>Save Baking Log</Button>
-						</div>
+					<div className='my-8 flex justify-between'>
+						<Button variant={"outline"}>Reset Form</Button>
+						<Button>Save Baking Log</Button>
+					</div>
 
 				</div>
 
