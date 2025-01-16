@@ -31,11 +31,6 @@ const factoredLeavenWaterAmount = 50; // for 1 1kg loaf (2lb loaf)
 const factoredLeavenFlourAmount = 50; // for 1kg loaf (2lb loaf)
 const factoredLeavenStarterAmount = 0.5; // half tablespoon for each loaf
 
-
-
-
-
-
 // reset form
 // set doughFactor to 1 or 2
 // that will update the leaven amounts 

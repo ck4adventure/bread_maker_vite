@@ -5,10 +5,10 @@ export const BakeLoavesCard = () => {
 	return (
 		<Card id='bake-loaves' className='my-4 border-gray-200 border rounded-md'>
 			<CardHeader>
-				<CardTitle className='my-2 font-bold'>Prep and Bake</CardTitle>
+				<CardTitle >Prep and Bake</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<p>If loaves in fridge, take out about 2 hours before baking time to get them to room temp</p>
+				<p>If loaves in fridge, take out about 2 hours before baking time to get them to room temp.</p>
 				<p>Preheat oven to 500F. If using dutch oven, put it in to preheat.</p>
 				<p>Once oven ready, if using tins, mist with a little water on top and put tins straight in.</p>
 				<p>Or, if using dutch oven, flip dough from basket, score the top, cover, and put into oven.</p>

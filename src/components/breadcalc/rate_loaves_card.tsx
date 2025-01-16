@@ -10,7 +10,7 @@ export const RateLoavesCard = () => {
 	return (
 					<Card id='rate-loaves' className='my-4 border-gray-200 border rounded-md'>
 				<CardHeader>
-					<CardTitle className='my-2 font-bold'>Rate Loaves</CardTitle>
+					<CardTitle >Rate Loaves</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<div id='doneness-group' className='flex'>

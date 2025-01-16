@@ -11,7 +11,7 @@ export const LeavenCard: React.FC<LeavenCardProps> = ({leavenWaterAmount, leaven
 	return (
 				<Card id='leaven-amounts' className='my-4  border-gray-200 border rounded-md'>
 				<CardHeader>
-					<CardTitle>Make the Leaven</CardTitle>
+					<CardTitle >Make the Leaven</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<div className=''>Ingredients</div>

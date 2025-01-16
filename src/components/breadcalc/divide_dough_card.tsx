@@ -9,7 +9,7 @@ export const DivideDoughCard: React.FC<DivideDoughCardProps> = ({}) => {
 	return (
 					<Card id='divide-dough' className='my-4 border-gray-200 border rounded-md'>
 				<CardHeader>
-					<CardTitle className='my-2 font-bold'>Divide Dough and Bench Rest</CardTitle>
+					<CardTitle >Divide Dough and Bench Rest</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<p>Turn dough out onto a clean counter space.</p>

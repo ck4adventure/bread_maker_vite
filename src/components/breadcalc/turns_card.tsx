@@ -9,7 +9,7 @@ export const TurnsCard: React.FC<TurnsCardProps> = ({ }) => {
 	return (
 		<Card id='do-turns' className='my-4 border-gray-200 border rounded-md'>
 			<CardHeader>
-				<CardTitle className='my-2 font-bold'>Do turns</CardTitle>
+				<CardTitle>Do turns</CardTitle>
 			</CardHeader>
 			<CardContent>
 				<p>Once the 30min is done, take the dough and do the first set of turns, about 6.</p>

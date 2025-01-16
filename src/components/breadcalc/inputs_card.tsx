@@ -31,12 +31,12 @@ const RecipeInputsCard: React.FC<RecipeInputsCardProps> = ({doughFactor, handled
 	return (
 		<Card id='recipe-inputs' className='my-4 border-gray-200 border rounded-md'>
 			<CardHeader>
-				<CardTitle>Set the Recipe</CardTitle>
+				<CardTitle className='font-bold'>Set the Recipe</CardTitle>
 			</CardHeader>
 			<CardContent className=''>
 				<div className=''>
-					<div className='m-2 font-bold'>How much bread to make?</div>
-					<div className='flex m-2'>
+					<div className='font-semibold text-sm'>How much bread to make?</div>
+					<div className='flex'>
 						<div className='w-16'>
 							<Input
 								type='number'
@@ -59,14 +59,14 @@ const RecipeInputsCard: React.FC<RecipeInputsCardProps> = ({doughFactor, handled
 					</div>
 				</div>
 				<div className='mt-4'>
-					<div className='m-2 font-bold'>What type of bread?</div>
-					<div className='m-2'>
+					<div className='font-semibold text-sm'>What type of bread?</div>
+					<div className=''>
 						<Select>
 							<SelectTrigger className="w-[180px]">
 								<SelectValue placeholder="choose one" />
 							</SelectTrigger>
 							<SelectContent>
-								<SelectItem value={breadType}>{breadType.toUpperCase() + breadType.substring(1)}</SelectItem>
+								<SelectItem value={breadType}>{breadType[0].toUpperCase() + breadType.substring(1)}</SelectItem>
 								{/* <SelectItem value="dark">Dark</SelectItem>
 							<SelectItem value="system">System</SelectItem> */}
 							</SelectContent>
