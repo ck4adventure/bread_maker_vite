@@ -1,13 +1,17 @@
 import './App.css'
+import Headerbar from '@/components/headerbar';
+import BreadCalcPage from '@/components/bread_calc_page';
+
 
 function App() {
 
-  return (
-    <>
-      <h1 className='text-3xl'>Bread Maker App</h1>
 
-    </>
-  )
+	return (
+		<>
+			<Headerbar />
+			<BreadCalcPage />
+		</>
+	)
 }
 
 export default App
